@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Başarım Metrikleri</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #1e90ff;
+            font-size: 36px;
+        }
+        .container {
+            background-color: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: auto;
+            text-align: left;
+        }
+        .metric-section {
+            margin-bottom: 30px;
+        }
+        .metric-section h2 {
+            color: #1e90ff;
+            margin-bottom: 10px;
+        }
+        pre, table {
+            background-color: #eef6ff;
+            padding: 15px;
+            border-radius: 10px;
+            overflow-x: auto;
+            font-family: monospace;
+            font-size: 16px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table th, table td {
+            padding: 8px;
+            border: 1px solid #1e90ff;
+            text-align: center;
+        }
+        button.back-btn {
+            background-color: #1e90ff;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 20px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        button.back-btn:hover {
+            background-color: #0b60d1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Model Başarım Metrikleri</h1>
+    <div class="container">
+        <div class="metric-section">
+            <h2>Doğruluk (Accuracy):</h2>
+            <p><strong>{{ accuracy*100 | round(2) }}%</strong></p>
+        </div>
+        <div class="metric-section">
+            <h2>Sınıflandırma Raporu:</h2>
+            <pre>{{ report | safe }}</pre>
+        </div>
+        <div class="metric-section">
+            <h2>Confusion Matrix:</h2>
+            {{ confusion_matrix | safe }}
+        </div>
+        <button class="back-btn" onclick="window.location.href='/'">Tahmin Sayfasına Dön</button>
+    </div>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Haber Chatbot</title>
+    <style>
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            padding: 30px;
+        }
+        h1 {
+            color: #0077b6;
+            font-size: 38px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            max-width: 700px;
+            margin: auto;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 14px;
+            margin: 20px 0;
+            font-size: 18px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+        }
+        input[type="submit"] {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #005f87;
+        }
+        .result {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #333;
+        }
+        .images {
+            margin-top: 30px;
+        }
+        .images img {
+            width: 100px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .footer-icons img {
+            width: 80px;
+            margin: 15px 5px;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbota Hoş Geldiniz!</h1>
+    <div class="images">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712109.png" alt="AI1">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712047.png" alt="AI2">
+        <img src="https://cdn-icons-png.flaticon.com/512/4712/4712070.png" alt="AI3">
+        <img src="https://cdn-icons-png.flaticon.com/512/2621/2621120.png" alt="NLP1">
+        <img src="https://cdn-icons-png.flaticon.com/512/1674/1674291.png" alt="NLP2">
+    </div>
+    <div class="container">
+        <form method="POST">
+            <input type="text" name="title" placeholder="Haber başlığını girin..." required>
+            <br>
+            <input type="submit" value="Tahmin Et">
+        </form>
+        {% if prediction %}
+            <div class="result">
+                Tahmin Edilen Kategori: <strong>{{ prediction }}</strong>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
